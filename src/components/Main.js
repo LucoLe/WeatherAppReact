@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 import Nav from './Nav';
 
@@ -8,7 +8,12 @@ export default class Main extends React.Component {
       <div>
         <Nav />
         <h2>Main Component</h2>
+        {this.props.children}
       </div>
     );
   }
 }
+
+Main.propTypes = {
+  children: PropTypes.object.isRequired
+};
