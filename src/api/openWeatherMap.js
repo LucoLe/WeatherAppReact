@@ -12,7 +12,7 @@ export function getTemp (location) {
     } else {
       return res.data.main.temp;
     }
-  }, function (err) {
+  }).catch(function (err) {
     throw new Error(err.response.data.message);
   });
 }
