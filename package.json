@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "test": "test",
-    "start": "npm-run-all --parallel open:src lint:watch",
+    "start": "babel-node tools/server.js",
+    "start:dev": "npm-run-all --parallel open:src lint:watch",
     "open:src": "babel-node tools/server.js",
     "lint": "node_modules/.bin/esw webpack.config.* src utils",
     "lint:watch": "npm run lint -- --watch"

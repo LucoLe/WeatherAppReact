@@ -16,8 +16,8 @@ export default {
 
   output: {
     path: __dirname + '/dist',
+    filename: 'bundle.js',
     publicPath: '/',
-    filename: 'bundle.js'
   },
 
   devServer: {
