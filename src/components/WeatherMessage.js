@@ -1,8 +1,6 @@
 import React, {PropTypes} from 'react';
 
-export default function WeatherMessage (props)  {
-  let { temp, location } = props;
-
+export default function WeatherMessage ({ temp, location })  {
   return (
     <h3>It's {temp} in {location}</h3>
   );
