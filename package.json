@@ -7,7 +7,9 @@
   "license": "MIT",
   "scripts": {
     "test": "test",
+    "build": "NODE_ENV=production webpack --config ./webpack.config.prod.babel.js --progress --colors",
     "start": "babel-node tools/server.js",
+    "start:prod": "NODE_ENV=production babel-node tools/server.js",
     "start:dev": "npm-run-all --parallel open:src lint:watch",
     "open:src": "babel-node tools/server.js",
     "lint": "node_modules/.bin/esw webpack.config.* src utils",
@@ -15,6 +17,7 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "babel": "^6.5.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router": "^3.0.2"
