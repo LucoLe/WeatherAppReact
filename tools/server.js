@@ -19,11 +19,10 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(require('webpack-hot-middleware')(compiler));
 } else if (process.env.NODE_ENV === 'production') {
   app.use(function (req, res, next) {
-    if (req.headers['x-forwarded-proto'] === 'http') {
-      console.log("HTTP");
-      next();
-    } else {
+    if (req.headers['x-forwarded-proto'] === 'https') {
       res.redirect('http://' + req.hostname + req.url);
+    } else {
+      next();
     }
   });
 
