@@ -9,8 +9,14 @@ export default {
   entry: [
     'eventsource-polyfill',
     'webpack-hot-middleware/client?reload=true',
+    'script!jquery/dist/jquery.min.js',
+    'script!foundation-sites/dist/js/foundation.min.js',
     './src/app'
   ],
+
+  externals: {
+    jquery: 'jQuery'
+  },
 
   target: 'web',
 
@@ -33,7 +39,11 @@ export default {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.ProvidePlugin({
+      '$': 'jquery',
+      'jQuery': 'jquery'
+    })
   ],
 
   module: {
