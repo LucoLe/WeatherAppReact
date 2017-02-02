@@ -9,7 +9,7 @@
     "test": "test",
     "build": "NODE_ENV=production webpack --config ./webpack.config.prod.babel.js --progress --colors",
     "start": "./node_modules/.bin/babel-node tools/server.js",
-    "start:prod": "NODE_ENV=production babel-node tools/server.js",
+    "start:prod": "NODE_ENV=production PORT=4564 babel-node tools/server.js",
     "start:dev": "npm-run-all --parallel open:src lint:watch",
     "open:src": "babel-node tools/server.js",
     "lint": "node_modules/.bin/esw webpack.config.* src utils",

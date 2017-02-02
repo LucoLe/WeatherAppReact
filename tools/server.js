@@ -11,7 +11,6 @@ const app = express();
 const compiler = webpack(config);
 
 if (process.env.NODE_ENV !== 'production') {
-  console.log("LOGGER");
   app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
     publicPath: config.output.publicPath
@@ -20,14 +19,6 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(require('webpack-hot-middleware')(compiler));
 } else if (process.env.NODE_ENV === 'production') {
   app.use(express.static('dist'));
-
-  app.use(function (req, res, next) {
-    if (req.headers['x-forwarded-proto'] === 'http') {
-      next();
-    } else {
-      res.redirect('http://' + req.hostname + req.url);
-    }
-  });
 }
 
 app.get('/', function(_, res) {
