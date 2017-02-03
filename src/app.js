@@ -6,6 +6,8 @@ import 'foundation-sites/dist/css/foundation.min.css';
 
 import routes from './routes';
 
+$(document).foundation();
+
 render(
   <Router history={browserHistory} routes={routes} />,
   document.getElementById('app')
