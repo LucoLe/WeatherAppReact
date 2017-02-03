@@ -5,8 +5,14 @@ export default {
   devtool: 'source-map',
 
   entry: [
+    'script!jquery/dist/jquery.min.js',
+    'script!foundation-sites/dist/js/foundation.min.js',
     './src/app'
   ],
+
+  externals: {
+    jquery: 'jQuery'
+  },
 
   output: {
     path: __dirname + '/dist',
@@ -26,6 +32,10 @@ export default {
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
+    }),
+    new webpack.ProvidePlugin({
+      '$': 'jquery',
+      'jQuery': 'jquery'
     })
   ],
 
