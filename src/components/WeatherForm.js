@@ -29,7 +29,7 @@ export default class WeatherForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" value={this.state.location} onChange={this.handleChange}/>
+          <input type="text" value={this.state.location} onChange={this.handleChange} placeholder="Search weather by city"/>
           <button className="button expanded hollow">Get Weather</button>
         </form>
       </div>
