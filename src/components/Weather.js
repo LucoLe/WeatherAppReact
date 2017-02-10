@@ -64,7 +64,7 @@ export default class Weather extends React.Component {
     function renderMessage() {
       if (isLoading) {
         return <h3 className="text-center">Fetching weather...</h3>;
-      } else if(temp && location) {
+      } else if(typeof(temp) === 'number' && location) {
         return <WeatherMessage location={location} temp={temp}/>;
       }
     }

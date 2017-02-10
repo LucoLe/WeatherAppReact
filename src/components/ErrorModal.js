@@ -1,15 +1,11 @@
 import React, {PropTypes} from 'react';
+import ReactDOM from 'react-dom';
+import ReactDOMServer from 'react-dom/server';
 
 export default class ErrorModal extends React.Component {
   componentDidMount() {
-    let modal = new Foundation.Reveal($('#error-modal'));
-    modal.open();
-  }
-
-  render() {
     let { title, message } = this.props;
-
-    return (
+    let modalMarkup = (
       <div id="error-modal" className="reveal tiny text-center" data-reveal="">
         <h4>{title}</h4>
         <p>{message}</p>
@@ -19,6 +15,18 @@ export default class ErrorModal extends React.Component {
           </button>
         </p>
       </div>
+    );
+
+    let $modal = $(ReactDOMServer.renderToString(modalMarkup));
+    $(ReactDOM.findDOMNode(this)).html($modal);
+
+    let modal = new Foundation.Reveal($('#error-modal'));
+    modal.open();
+  }
+
+  render() {
+    return (
+      <div></div>
     );
   }
 }
