@@ -15,12 +15,34 @@ export default class Weather extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
 
+  componentDidMount() {
+    let location = this.props.location.query.location;
+
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+
+      // window.location.search = '';
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    let location = newProps.location.query.location;
+
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+
+      // window.location.search = '';
+    }
+  }
+
   handleSearch(location) {
     let that = this;
 
     this.setState({
       isLoading: true,
-      errorMessage: undefined
+      errorMessage: undefined,
+      location: undefined,
+      temp: undefined
     });
 
     openWeatherMap.getTemp(location).then(function (temp) {
@@ -65,3 +87,7 @@ export default class Weather extends React.Component {
     );
   }
 }
+
+Weather.propTypes = {
+  location: React.PropTypes.object,
+};

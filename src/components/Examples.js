@@ -8,10 +8,10 @@ export default function Examples () {
       <p>Here are a few example locations to try out:</p>
       <ol>
         <li>
-          <Link to="/?location=Plovdiv">Plovdiv, Bulgaria</Link>
+          <Link to={{ pathname: '/', query: { location: 'Plovdiv' } }}>Plovdiv, Bulgaria</Link>
         </li>
         <li>
-          <Link to="/?location=Rio">Rio, Brazil</Link>
+          <Link to={{ pathname: '/', query: { location: 'Rio' } }}>Rio, Brazil</Link>
         </li>
       </ol>
     </div>

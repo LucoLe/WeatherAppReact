@@ -29,7 +29,7 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(express.static('dist'));
 }
 
-app.get('/', function(_, res) {
+app.get('/*', function(_, res) {
   res.sendFile(path.join( __dirname, '../src/index.html'));
 });
 
